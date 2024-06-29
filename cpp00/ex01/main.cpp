@@ -17,8 +17,8 @@ int main()
 			myPhone.add();
 		else if (input == "SEARCH")
 			myPhone.search();
-		// else if (input == "EXIT")
-		// 	myPhone.exit();
+		else if (input == "EXIT")
+			return (0);
 	}
 
 	return (0);

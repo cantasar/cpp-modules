@@ -121,13 +121,10 @@ void PhoneBook::search()
 				break;
 			}
 			else
+			{
 				std::cout << "Invalid input. Please enter a valid index." << std::endl;
+				break;
+			}
 		}
-		else
-		{
-            std::cout << "Invalid input. Please enter a valid index." << std::endl;
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        }
 	}
 }
