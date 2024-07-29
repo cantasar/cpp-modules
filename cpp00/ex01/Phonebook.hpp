@@ -11,11 +11,8 @@ class PhoneBook
         int size;
 	public:
 		PhoneBook();
-		int  getSize(void);
 		void add(void);
 		void search(void);
-		void exit(void);
-		void show_variables(void);
 };
 
 #endif

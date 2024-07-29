@@ -10,11 +10,6 @@ PhoneBook::PhoneBook()
 	this->size = 0;
 }
 
-int PhoneBook::getSize()
-{
-	return(this->size);
-}
-
 int is_digit(std::string s)
 {
 	int i = -1;
@@ -22,23 +17,6 @@ int is_digit(std::string s)
 		if (!(s[i] >= '0' && s[i] <= '9'))
 			return (0);
 	return (1);
-}
-
-int strtoint(const std::string& str)
-{
-    int result = 0;
-    int sign = 1;
-    size_t i = 0;
-    if (str[0] == '-')
-	{
-        sign = -1;
-        i = 1;
-    }
-    for (; i < str.length(); ++i)
-	{
-        result = result * 10 + (str[i] - '0');
-    }
-    return sign * result;
 }
 
 void PhoneBook::add()
@@ -110,9 +88,8 @@ void PhoneBook::search()
 		{
             if (!is_digit(input))
                 continue;
-            std::cin.ignore(1,'\n');
-            index = strtoint(input);
-            if (index >=0 && index <=7 && index < getSize())
+            index = std::atoi(input.c_str());
+            if (index >=0 && index <=7 && index < this->size)
 			{
 				std::cout << "Index: " << index << std::endl;
 				std::cout << "First Name: " << this->contacts[index].get_name() << std::endl;
