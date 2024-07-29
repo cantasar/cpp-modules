@@ -7,23 +7,25 @@ int main(int ac, char *argv[]) {
         return (1);
     }
 
-    std::ifstream infile(argv[1]);
-    std::ofstream outfile((std::string(argv[1]) + ".replace").c_str());
+    std::ifstream infile;
+    infile.open(argv[1]);
+    std::ofstream outfile;
+    outfile.open((std::string(argv[1]) + ".replace").c_str());
 
-    std::string s1 = argv[2];
-    std::string s2 = argv[3];
+    std::string s_cur = argv[2];
+    std::string s_new = argv[3];
 
-    int    findIn;
+    int    find_index;
     std::string lines;
     std::string line;
     if (infile.is_open()) {
         while (std::getline(infile, line)) {
-            findIn = line.find(s1);
-            while (findIn != -1) {
-                findIn = line.find(s1);
-                if (findIn != -1) {
-                    line.erase(findIn, s1.length());
-                    line.insert(findIn, s2);
+            find_index = line.find(s_cur);
+            while (find_index != -1) {
+                find_index = line.find(s_cur);
+                if (find_index != -1) {
+                    line.erase(find_index, s_cur.length());
+                    line.insert(find_index, s_new);
                 }
             }
             lines += line + '\n';
@@ -31,4 +33,6 @@ int main(int ac, char *argv[]) {
         infile.close();
         outfile << lines;
     }
+    outfile.close();
+    return 0;
 }

@@ -10,7 +10,7 @@ int main()
 	std::cout << "The address of the stringREF: " << &stringREF << std::endl;
 	std::cout << "The address of the stringPTR: " << stringPTR << std::endl;
 	std::cout << "--------------------------------------------" << std::endl;
-	std::cout << "The value of the string: " << str << std::endl;
+	std::cout << "The value of the string   : " << str << std::endl;
 	std::cout << "The value of the stringREF: " << stringREF << std::endl;
 	std::cout << "The value of the stringPTR: " << *stringPTR << std::endl;
 	std::cout << "--------------------------------------------" << std::endl;
