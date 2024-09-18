@@ -1,6 +1,5 @@
 #include "Fixed.hpp"
 
-//Orthodox canonial form
 Fixed::Fixed()
 {
 	cout << "Default Costructer Called" << endl;
@@ -25,7 +24,6 @@ Fixed& Fixed::operator=(const Fixed& other)
 	return (*this);
 }
 
-//Constructors
 Fixed::Fixed(int const value)
 {
 	cout << "Int Costructer Called" << endl;
@@ -38,7 +36,6 @@ Fixed::Fixed(float const value)
 	this->fixedPointValue = roundf(value * (1 << this->fractionalBits));
 }
 
-//Member functions
 float	Fixed::toFloat(void) const
 {
 	return ((float)this->fixedPointValue / (1 << this->fractionalBits));
@@ -55,8 +52,6 @@ std::ostream& operator<<(std::ostream& os, const Fixed& fixed)
 	return (os);
 }
 
-
-//--------------------EX02--------------------
 
 Fixed	Fixed::operator+(const Fixed& other)
 {
@@ -117,8 +112,6 @@ bool	Fixed::operator!=(const Fixed& other)
 }
 
 
-
-
 Fixed&	Fixed::operator++() 
 {
 	this->fixedPointValue++;
@@ -165,13 +158,6 @@ const Fixed&	Fixed::max(Fixed const& a, Fixed const& b)
 	return (a > b ? a : b);
 }
 
-
-
-
-
-
-
-//--------------------EX02--------------------
 
 int	Fixed::getRawBits() const
 {

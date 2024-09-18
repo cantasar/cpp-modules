@@ -22,7 +22,6 @@ public:
 	float	toFloat(void) const;
 	int		toInt(void) const;
 
-	//--------------------------------------------
 	bool	operator> (const Fixed& other) const;
 	bool	operator< (const Fixed& other) const;
 	bool	operator>=(const Fixed& other);
@@ -44,8 +43,6 @@ public:
 	static Fixed&	max(Fixed& a, Fixed& b);
 	static const Fixed&	min(Fixed const& a, Fixed const& b);
 	static const Fixed&	max(Fixed const& a, Fixed const& b);
-
-	//--------------------------------------------
 
 	int		getRawBits() const;
 	void	setRawBits(int raw);
