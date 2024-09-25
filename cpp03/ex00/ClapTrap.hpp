@@ -7,7 +7,7 @@ using std::cout;
 using std::endl;
 
 class ClapTrap {
-	protected:
+	private:
 		string name;
 		int hitPoints;
 		int energyPoints;
