@@ -15,7 +15,7 @@ Fixed::Fixed(const Fixed &cpy)
 Fixed& Fixed::operator=(const Fixed& other)
 {
 	cout << "Copy Assigment Operator Called" << endl;
-	this->fixedPointValue = other.fixedPointValue;
+	this->fixedPointValue = other.getRawBits();
 	return (*this);
 }
 

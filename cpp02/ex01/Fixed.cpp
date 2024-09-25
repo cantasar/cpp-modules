@@ -2,24 +2,24 @@
 
 Fixed::Fixed()
 {
-	cout << "Default Costructer Called" << endl;
+	cout << "Default costructer called" << endl;
 	this->fixedPointValue = 0;
 }
 
 Fixed::Fixed(const Fixed &cpy)
 {
-	cout << "Copy Costructer Called" << endl;
+	cout << "Copy costructer called" << endl;
 	*this = cpy;
 }
 
 Fixed::~Fixed()
 {
-	cout << "Destructor Called" << endl;
+	cout << "Destructor called" << endl;
 }
 
 Fixed& Fixed::operator=(const Fixed& other)
 {
-	cout << "Copy Assigment Operator Called" << endl;
+	cout << "Copy assigment operator called" << endl;
 	this->fixedPointValue = other.fixedPointValue;
 	return (*this);
 }
@@ -27,13 +27,13 @@ Fixed& Fixed::operator=(const Fixed& other)
 
 Fixed::Fixed(int const value)
 {
-	cout << "Int Costructer Called" << endl;
+	cout << "Int costructer called" << endl;
 	this->fixedPointValue = value << this->fractionalBits;
 }
 
 Fixed::Fixed(float const value)
 {
-	cout << "Float Costructer Called" << endl;
+	cout << "Float costructer called" << endl;
 	this->fixedPointValue = roundf(value * (1 << this->fractionalBits));
 }
 
