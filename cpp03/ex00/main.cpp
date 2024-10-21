@@ -1,24 +1,17 @@
 #include "ClapTrap.hpp"
-#include <iostream>
 
 int main() {
-	ClapTrap	Jack("Jack");
-	
-	std::cout << "\n---Start attacking---\n" << std::endl;
+	ClapTrap	clap("clap");
 
-	Jack.attack("Sharks");
-	Jack.attack("Pirates");
-	Jack.takeDamage(3);
-	Jack.beRepaired(10);
-	Jack.attack("Dragon");
-	Jack.attack("Spirits");
-	Jack.attack("Lions");
-	Jack.attack("Kings");
-	Jack.takeDamage(10);
-	Jack.takeDamage(10);
-	Jack.takeDamage(10);
-	Jack.takeDamage(10);
+	clap.attack("clap1");
+	clap.attack("clap2");
+	clap.takeDamage(3);
+	clap.beRepaired(10);
+	clap.attack("clap3");
+	clap.takeDamage(10);
+	clap.takeDamage(10);
+	clap.takeDamage(10);
+	clap.takeDamage(10);
 
-	std::cout << "\nFights are over..." << std::endl;
 	return 0;
 }

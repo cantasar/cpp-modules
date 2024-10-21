@@ -1,13 +1,14 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
-#include <iostream>
 
 int main() {
-    FragTrap ft("NARUTO");
+    FragTrap frag("frag");
 
-    ft.attack("LUFFY");
-    ft.beRepaired(200);
-    ft.highFivesGuys();
+    frag.attack("frag1");
+    frag.beRepaired(200);
+	frag.takeDamage(30);
+    frag.highFivesGuys();
+
     return (0);
 }

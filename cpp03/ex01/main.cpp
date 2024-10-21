@@ -1,23 +1,17 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
-#include <iostream>
 
 int main() {
-	ScavTrap	scavtrap("A");
+	ScavTrap	scav("scav");
 
-	cout << "\nStart attacking...\n" << endl;
+	scav.attack("scav1");
+	scav.attack("scav2");
+	scav.takeDamage(3);
+	scav.takeDamage(14);
+	scav.beRepaired(10);
+	scav.attack("scav3");
+	scav.takeDamage(12);
+	scav.takeDamage(52);
 
-	scavtrap.attack("Sharks");
-	scavtrap.attack("Pirates");
-	scavtrap.takeDamage(3);
-	scavtrap.takeDamage(14);
-	scavtrap.beRepaired(10);
-	scavtrap.attack("Dragon");
-	scavtrap.attack("Spirits");
-	scavtrap.attack("Lions");
-	scavtrap.attack("Kings");
-
-	cout << "\nEnd attacking...\n" << endl;
-
-	scavtrap.guardGate();
+	scav.guardGate();
 }

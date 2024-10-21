@@ -37,7 +37,7 @@ ClapTrap::~ClapTrap() {
 
 void ClapTrap::attack(const string &target) {
 	if (this->hitPoints > 0 && this->energyPoints > 0) {
-		cout << "ClapTrap " << this->name << " attacks " << target << ", causing " << this->hitPoints << " points of damage!" << endl;
+		cout << "ClapTrap " << this->name << " attacks " << target << ", causing " << this->attackDamage << " points of damage!" << endl;
 		this->energyPoints -= 1;
 	} else if (this->hitPoints <= 0) {
 		cout << "ClapTrap " << this->name << " is dead and cannot attack" << endl;
