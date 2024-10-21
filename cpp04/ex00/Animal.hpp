@@ -15,12 +15,10 @@ class Animal {
 		Animal(string type);
 		Animal(const Animal &other);
 		Animal &operator=(const Animal &other);
-		~Animal();
+		virtual ~Animal();
+
 		string getType() const;
-		virtual void makeSound() const ;
+		virtual void makeSound() const;
 };
-
-
-
 
 #endif

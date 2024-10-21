@@ -15,15 +15,22 @@ int main()
 	i->makeSound(); 
 	j->makeSound();
 	meta->makeSound();
+	
+	delete meta;
+	delete j;
+	delete i;
 
 	cout << endl << "------WrongAnimal------" << endl;
 
 	const WrongAnimal* meta2 = new WrongAnimal();
 	const WrongAnimal* j2 = new WrongCat();
 
-	cout << j2->getType() << " " << endl;
+	cout << j2->getType() << endl;
 	j2->makeSound();
 	meta2->makeSound();
+
+	delete meta2;
+	delete j2;
 
 	return 0;
 }

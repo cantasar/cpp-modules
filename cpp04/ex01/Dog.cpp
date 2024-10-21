@@ -13,9 +13,11 @@ Dog::Dog(const Dog &other) {
 
 Dog &Dog::operator=(const Dog &other) {
 	cout << "Dog assignation operator called" << endl;
-	if (this != &other)
-		type = other.type;
-	return *this;
+    type = other.type;
+    delete brain;
+    brain = new Brain();
+    brain = other.brain;
+    return *this;
 }
 
 Dog::~Dog() {
@@ -26,4 +28,3 @@ Dog::~Dog() {
 void Dog::makeSound() const {
 	cout << "Woof Woof" << endl;
 }
-

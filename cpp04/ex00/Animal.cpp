@@ -31,6 +31,6 @@ string Animal::getType() const {
 }
 
 void Animal::makeSound() const {
-	cout << "Animal sound" << endl;
+	cout << "(animal sound)" << endl;
 }
 
