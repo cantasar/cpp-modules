@@ -1,5 +1,4 @@
 NAME = Bureaucrat
-CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
@@ -8,13 +7,12 @@ OBJS = $(SRCS:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
+	c++ $(FLAGS) $(OBJS) -o $(NAME)
 
 clean:
 	rm -rf $(OBJS)
 
 fclean: clean
-	rm -rf *_shrubbery
 	rm -rf $(NAME)
 
 re: fclean all
