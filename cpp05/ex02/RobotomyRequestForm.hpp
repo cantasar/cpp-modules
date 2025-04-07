@@ -7,6 +7,7 @@ class RobotomyRequestForm : public AForm
 {
 private:
 	string _target;
+
 public:
 	RobotomyRequestForm();
 	RobotomyRequestForm(const string &target);

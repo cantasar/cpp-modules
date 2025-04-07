@@ -2,31 +2,43 @@
 
 int main()
 {
-	try {
+	try
+	{
 		Bureaucrat bob("Bob", 1);
 		std::cout << bob << std::endl;
 		bob.incrementGrade();
-	} catch (std::exception &e) {
+	}
+	catch (std::exception &e)
+	{
 		std::cerr << e.what() << std::endl;
 	}
 
-	try {
+	try
+	{
 		Bureaucrat alice("Alice", 150);
 		std::cout << alice << std::endl;
 		alice.decrementGrade();
-	} catch (std::exception &e) {
+	}
+	catch (std::exception &e)
+	{
 		std::cerr << e.what() << std::endl;
 	}
 
-	try {
+	try
+	{
 		Bureaucrat charlie("Charlie", 0);
-	} catch (std::exception &e) {
+	}
+	catch (std::exception &e)
+	{
 		std::cerr << e.what() << std::endl;
 	}
 
-	try {
+	try
+	{
 		Bureaucrat dave("Dave", 151);
-	} catch (std::exception &e) {
+	}
+	catch (std::exception &e)
+	{
 		std::cerr << e.what() << std::endl;
 	}
 

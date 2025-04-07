@@ -28,7 +28,7 @@ private:
 
 public:
 	Bureaucrat();
-	Bureaucrat(const string& name, int grade);
+	Bureaucrat(const string &name, int grade);
 	Bureaucrat(Bureaucrat const &src);
 	Bureaucrat &operator=(Bureaucrat const &src);
 	~Bureaucrat();
@@ -42,7 +42,6 @@ public:
 	void signForm(AForm &form);
 
 	void executeForm(AForm const &form) const;
-
 };
 std::ostream &operator<<(std::ostream &o, const Bureaucrat &b);
 

@@ -16,14 +16,15 @@ PresidentialPardonForm::~PresidentialPardonForm() {}
 
 void PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
-	try{
+	try
+	{
 		if (executor.getGrade() > this->getGradeToExecute())
 			throw AForm::GradeTooLowException();
 		if (!this->getSigned())
 			throw AForm::FormException();
 		std::cout << _target << " has been pardoned by Zafod Beeblebrox" << std::endl;
 	}
-	catch(std::exception &e)
+	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
 		throw;

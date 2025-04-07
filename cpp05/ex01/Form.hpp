@@ -5,7 +5,8 @@
 #include <iostream>
 class Bureaucrat;
 
-class Form {
+class Form
+{
 private:
 	std::string const _name;
 	bool _signed;
@@ -14,7 +15,7 @@ private:
 
 public:
 	Form();
-	Form(const std::string& name, int gradeToSign, int gradeToExecute);
+	Form(const std::string &name, int gradeToSign, int gradeToExecute);
 	Form(Form const &src);
 	Form &operator=(Form const &src);
 	~Form();
@@ -37,7 +38,6 @@ public:
 	public:
 		const char *what() const throw();
 	};
-
 };
 std::ostream &operator<<(std::ostream &o, const Form &f);
 

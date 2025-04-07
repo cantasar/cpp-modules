@@ -7,6 +7,7 @@ class ShrubberyCreationForm : public AForm
 {
 private:
 	string _target;
+
 public:
 	ShrubberyCreationForm();
 	ShrubberyCreationForm(const string &target);
@@ -16,7 +17,5 @@ public:
 
 	void execute(Bureaucrat const &executor) const;
 };
-
-
 
 #endif

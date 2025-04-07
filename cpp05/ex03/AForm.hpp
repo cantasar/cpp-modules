@@ -8,7 +8,8 @@ using std::endl;
 using std::string;
 class Bureaucrat;
 
-class AForm {
+class AForm
+{
 private:
 	string const _name;
 	bool _signed;
@@ -17,7 +18,7 @@ private:
 
 public:
 	AForm();
-	AForm(const string& name, int gradeToSign, int gradeToExecute);
+	AForm(const string &name, int gradeToSign, int gradeToExecute);
 	AForm(AForm const &src);
 	AForm &operator=(AForm const &src);
 	~AForm();
@@ -29,7 +30,7 @@ public:
 
 	void beSigned(const Bureaucrat &b);
 
-	virtual void execute(Bureaucrat const & executor) const = 0;
+	virtual void execute(Bureaucrat const &executor) const = 0;
 
 	class GradeTooHighException : public std::exception
 	{
@@ -48,7 +49,6 @@ public:
 	public:
 		const char *what() const throw();
 	};
-
 };
 std::ostream &operator<<(std::ostream &o, const AForm &f);
 

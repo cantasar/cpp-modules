@@ -9,15 +9,16 @@ ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &src) :
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm const &src)
 {
-	this->_target = src._target;
-	return *this;
+    this->_target = src._target;
+    return *this;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
-    try{
+    try
+    {
         if (executor.getGrade() > this->getGradeToExecute())
             throw AForm::GradeTooLowException();
         if (!this->getSigned())
@@ -35,11 +36,9 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
         file << "      // \\\\" << std::endl;
         file.close();
     }
-    catch(std::exception &e)
+    catch (std::exception &e)
     {
-		std::cout << e.what() << std::endl;
-		throw;
+        std::cout << e.what() << std::endl;
+        throw;
     }
 }
-
-

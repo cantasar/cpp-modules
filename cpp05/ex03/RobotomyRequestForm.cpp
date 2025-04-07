@@ -16,7 +16,8 @@ RobotomyRequestForm::~RobotomyRequestForm() {}
 
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
-	try{
+	try
+	{
 		if (executor.getGrade() > this->getGradeToExecute())
 			throw AForm::GradeTooLowException();
 		if (!this->getSigned())
@@ -27,7 +28,7 @@ void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 		else
 			std::cout << _target << " robotomization failed" << std::endl;
 	}
-	catch(std::exception &e)
+	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
 		throw;
