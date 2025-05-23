@@ -67,6 +67,29 @@ bool BitcoinExchange::read_database() {
     return true;
 }
 
+bool isNumber(const std::string& s) {
+    bool decimalPointSeen = false;
+    size_t i = 0;
+    while (i < s.length() && isspace(s[i])) i++;
+    if (i < s.length() && (s[i] == '-' || s[i] == '+')) i++;
+    bool digitSeen = false;
+    for (; i < s.length(); ++i) {
+        if (isdigit(s[i])) {
+            digitSeen = true;
+            continue;
+        }
+        if (s[i] == '.') {
+            if (decimalPointSeen) return false;
+            decimalPointSeen = true;
+            continue;
+        }
+        if (isspace(s[i])) break;
+        return false;
+    }
+    while (i < s.length() && isspace(s[i])) i++;
+    return digitSeen && i == s.length();
+}
+
 void BitcoinExchange::process_input(const std::string& filename) {
     std::ifstream file(filename);
     if (!file.is_open()) {
@@ -91,7 +114,12 @@ void BitcoinExchange::process_input(const std::string& filename) {
         }
 
         try {
-            float value = atof(line.substr(separator + 3).c_str());
+            std::string valueStr = line.substr(separator + 3);
+            if (!isNumber(valueStr)) {
+                std::cout << "Error: value is not a valid number." << std::endl;
+                continue;
+            }
+            float value = atof(valueStr.c_str());
             if (value < 0) {
                 std::cout << "Error: not a positive number." << std::endl;
                 continue;
