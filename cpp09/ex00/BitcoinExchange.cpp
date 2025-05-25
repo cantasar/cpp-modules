@@ -109,14 +109,14 @@ void BitcoinExchange::process_input(const std::string& filename) {
 
         std::string date = line.substr(0, separator);
         if (!isValidDate(date)) {
-            std::cout << "Error: bad input => " << date << std::endl;
+            std::cout << "Error: bad input => " << line << std::endl;
             continue;
         }
 
         try {
             std::string valueStr = line.substr(separator + 3);
             if (!isNumber(valueStr)) {
-                std::cout << "Error: value is not a valid number." << std::endl;
+                std::cout << "Error: bad input => " << line << std::endl;
                 continue;
             }
             float value = atof(valueStr.c_str());
