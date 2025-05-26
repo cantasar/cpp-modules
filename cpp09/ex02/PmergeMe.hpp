@@ -3,14 +3,12 @@
 
 #include <vector>
 #include <deque>
-#include <string>
-#include <iostream>
-#include <stdexcept>
 #include <cmath>
 #include <iterator>
 #include <algorithm>
-#include <ctime>  
-#include <cctype>   
+#include <iostream>
+#include <ostream>
+#include <climits>
 
 class PmergeMe
 {
@@ -71,52 +69,52 @@ void PmergeMe::processPairs(T& nums, T& bigger, T& smaller) {
 
 template<typename T>
 T PmergeMe::sort(T nums) {
-	if (nums.size() < 2)
-		return nums;
+    if (nums.size() < 2)
+        return nums;
 
-	if (nums.size() == 2)
-		return sortPair(nums);
+    if (nums.size() == 2)
+        return sortPair(nums);
 
-	T bigger;
-	T smaller;
-	processPairs(nums, bigger, smaller);
-	
-	T right = sort(bigger);
-	T left = smaller;
+    T bigger;
+    T smaller;
+    processPairs(nums, bigger, smaller);
+    
+    T sortedBig = sort(bigger);
+    T pendingElements = smaller;
 
-	typename T::value_type keys;
-	for (typename T::iterator it = right.begin(); it != right.end(); ++it)
-		keys.push_back(it->front());
+    typename T::value_type sortedKeys;
+    for (typename T::iterator it = sortedBig.begin(); it != sortedBig.end(); ++it)
+        sortedKeys.push_back(it->front());
 
-	size_t index = 1;
-	int k = 1;
-	int val = left[0].front();
-	right.insert(right.begin(), left[0]);
-	keys.insert(keys.begin(), val);
+    size_t currentIndex = 1;
+    int jacobsthalStep = 1;
+    int currentValue = pendingElements[0].front();
+    sortedBig.insert(sortedBig.begin(), pendingElements[0]);
+    sortedKeys.insert(sortedKeys.begin(), currentValue);
 
-	while (keys.size() < nums.size()) {
-		if (index == jacobsthal(k - 1)) {
-			k += 1;
-			index = jacobsthal(k);
-		}
-		if (index - 1 >= left.size()) {
-			index -= 1;
-			continue;
-		}
-		val = left[index - 1].front();
+    while (sortedKeys.size() < nums.size()) {
+        if (currentIndex == jacobsthal(jacobsthalStep - 1)) {
+            jacobsthalStep += 1;
+            currentIndex = jacobsthal(jacobsthalStep);
+        }
+        if (currentIndex - 1 >= pendingElements.size()) {
+            currentIndex -= 1;
+            continue;
+        }
+        currentValue = pendingElements[currentIndex - 1].front();
 
-		typename T::value_type::iterator keyPos = std::lower_bound(keys.begin(), keys.end(), val);
-		int ind = keyPos - keys.begin();
+        typename T::value_type::iterator insertPosition = std::lower_bound(sortedKeys.begin(), sortedKeys.end(), currentValue);
+        int insertIndex = insertPosition - sortedKeys.begin();
 
-		typename T::iterator insertPos = right.begin();
-		std::advance(insertPos, ind);
-		right.insert(insertPos, left[index - 1]);
-		keys.insert(keyPos, val);
+        typename T::iterator elementPosition = sortedBig.begin();
+        std::advance(elementPosition, insertIndex);
+        sortedBig.insert(elementPosition, pendingElements[currentIndex - 1]);
+        sortedKeys.insert(insertPosition, currentValue);
 
-		index -= 1;
-	}
+        currentIndex -= 1;
+    }
 
-	return right;
+    return sortedBig;
 }
 
 #endif
